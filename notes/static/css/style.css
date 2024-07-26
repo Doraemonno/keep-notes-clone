@@ -1,0 +1,121 @@
+body{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    overflow: auto;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hidden{
+    display: none;
+}
+
+.box.focused .hidden{
+    display: block;
+}
+.box{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+    border-radius: 9px;
+    padding: 1rem 1rem;
+    box-shadow: 0px 2px 5px 1px #a6a4a4;
+}
+.title , .description {
+    border: none;
+    outline: none;
+    resize: none;
+}
+.close {
+    border: none;
+    background: transparent;
+}
+
+
+.display-section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* z-index: 10; */
+}
+
+.parent-card{
+    width: 18rem;
+    height: 26rem;
+    border: 1px solid #a6a4a4;
+    padding: 1rem;
+    border-radius: 9px;
+}
+
+.card{
+   
+
+
+    height: 100%;
+    overflow-y: hidden;
+    transition: all 0.3s linear;
+    position: relative;
+    background-color: white;
+    /* z-index: 10; */
+}
+
+.note{
+    width: 18rem;
+    height: 26rem;
+    border: 1px solid #a6a4a4;
+    padding: 1rem;
+    border-radius: 9px;
+}
+
+.card:focus {
+    border: 1px solid #a6a4a4;
+    max-height: 70vh;
+    height: auto;
+    overflow: auto;
+    width: 40vw;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 9px;
+    z-index: 30;
+
+
+}
+
+.title1 , .description1 {
+    border: none;
+    outline: none;
+    resize: none;
+    font-family: "Poppins", sans-serif;
+
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    pointer-events: none; 
+    /* Allows interactions through the overlay */
+    transition: background-color 0.3s ease;
+    /* z-index: 5;  */
+    /* Ensure it is above all content */
+}
+
+.display-section:focus-within ~ .overlay {
+    /* z-index: 5; */
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    /* pointer-events: auto;  */
+    /* Blocks interactions with elements behind */
+}
+
+body:has(.card:focus) {
+    overflow: hidden;
+}
